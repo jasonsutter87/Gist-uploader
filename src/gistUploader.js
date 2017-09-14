@@ -1,11 +1,20 @@
-const fs = require('fs');
+const axios = require('axios');
 
+const GIST_URL = 'https://api.github.com/gists';
 
-function readFile(file){
-  fs.readFile(file, 'utf8', (err, data) => {
-    if (err) throw err;
-    console.log(data)
-  })
+function uploadGist(input, description='Gist description') {
+  return axios.post(
+    GIST_URL,
+    {
+      'description': description,
+      'public': true,
+      'files': {
+        'Gist':  {
+          'content': input,
+        }
+      }
+    },
+  );
 }
 
-readFile(process.argv[2])
+module.exports = uploadGist;
