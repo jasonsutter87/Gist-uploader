@@ -9,7 +9,6 @@ async function Runner() {
     const upload = await gistUploader.uploadGist(fileName, contents, gistDescription);
     console.log(upload);
   } catch (error) {
-    console.log('***********');
     console.log(error);
   }
 }
