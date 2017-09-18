@@ -8,4 +8,4 @@
 ----
 ## Usage
     1. Clone down project
-    2. run $ node gistUploader.js <fileName or directory>
+    2. run $ node gistUploader.js <fileName or directory> <description=optional> 

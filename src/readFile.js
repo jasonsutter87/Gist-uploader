@@ -16,4 +16,4 @@ function readFile(file) {
   });
 }
 
-module.exports = readFile;
+module.exports = {readFile};
