@@ -6,14 +6,20 @@ const fs = require('fs');
  */
 function readFile(file) {
   return new Promise((resolve, reject) => {
-    fs.readFile(file, 'utf8', (err, data) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(data);
-      }
-    });
+    try {
+      const fileSizeInBytes = fs.statSync(file).size;
+      let totalBytesProcessed = 0;
+      const stream = fs.createReadStream(file);
+      stream.on('data', (chunk) => {
+        var textChunk = chunk.toString('utf8');
+        totalBytesProcessed += chunk.length;
+        console.log('Reading File: ' + ((totalBytesProcessed/fileSizeInBytes).toFixed(2) * 100).toString() +'%' )
+        resolve(textChunk);
+      });
+    } catch (error) {
+      reject(error);
+    }
   });
 }
 
-module.exports = {readFile};
+module.exports = { readFile };

@@ -32,10 +32,11 @@ async function uploadGist(file, content, description = 'Gist description') {
         },
       },
     );
+    console.log('Gist has been uploaded')
     return result.data.html_url;
   } catch (error) {
     return error;
   }
 }
 
-module.exports = {uploadGist};
+module.exports = { uploadGist };
