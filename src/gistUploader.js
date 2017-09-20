@@ -7,6 +7,7 @@ const GIST_URL = 'https://api.github.com/gists';
  * @param {string} file - The name of the file for the Gist.
  * @param {string} input - The contents of the Gist.
  * @param {string} description - The description of the Gist, Defaults to 'Gist description'.
+ * @returns {(string | error)} - String of the Gist URL or an error
  */
 async function uploadGist(file, content, description = 'Gist description') {
   try {
@@ -32,7 +33,7 @@ async function uploadGist(file, content, description = 'Gist description') {
         },
       },
     );
-    console.log('Gist has been uploaded')
+    process.stdout.write('\nGist has been uploaded\n')
     return result.data.html_url;
   } catch (error) {
     return error;
