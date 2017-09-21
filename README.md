@@ -7,5 +7,7 @@
 
 ----
 ## Usage
-    1. Clone down project
-    2. run $ node gistUploader.js <fileName or directory> <description=optional> 
+    * Clone down project
+    * cd Gist-uploader
+    * cd src
+    * node runner.js <fileName or directory> <description=optional>
