@@ -9,7 +9,7 @@ const progressBar = require('./progressBar');
 function writeProgressBar(indexOfCursor, totalByes, fileSize){
   process.stdout.clearLine(process.stdout, indexOfCursor)
   process.stdout.cursorTo(0)
-  process.stdout.write(`Reading File: [${progressBar.progressBar(((totalByes/fileSize).toFixed(2) * 100))}]` )
+  process.stdout.write(`Reading File: [${progressBar(((totalByes/fileSize).toFixed(2) * 100))}]` )
 }
 
-module.exports = { writeProgressBar };
+module.exports = writeProgressBar;

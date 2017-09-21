@@ -16,4 +16,4 @@ function progressBar(currentProgress) {
   return progressbar.join('');
 }
 
-module.exports = { progressBar };
+module.exports = progressBar;
